@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成人网页小游戏-轻量休闲游戏合集与在线游玩指南</title>
+<meta name="description" content="成人网页小游戏合集平台，收录无需下载、打开即玩的轻量休闲小游戏，提供分类导航、玩法说明、操作技巧与选择建议，适合碎片时间放松娱乐。">
+<meta name="keywords" content="成人网页小游戏,网页小游戏,在线小游戏,休闲小游戏,免下载游戏,轻量游戏">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0f1220;
+    --bg-soft:#171a2e;
+    --panel:#1e2238;
+    --panel-2:#252a45;
+    --line:#323a5c;
+    --txt:#eef1ff;
+    --txt-2:#a9b1d6;
+    --accent:#ff5c8a;
+    --accent-2:#7c5cff;
+    --accent-3:#33d6c8;
+    --warn:#ffb454;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 500px at 12% -8%, rgba(124,92,255,.28), transparent 60%),
+      radial-gradient(900px 460px at 92% 4%, rgba(255,92,138,.22), transparent 62%),
+      var(--bg);
+    color:var(--txt);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:min(1180px,92vw);margin:0 auto;}
+
+  /* ---------- 顶部导航 ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(15,18,32,.82);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;gap:18px;
+    min-height:66px;flex-wrap:wrap;padding:8px 0;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;}
+  .brand .dot{
+    width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:grid;place-items:center;font-size:15px;color:#fff;
+    box-shadow:0 6px 18px rgba(255,92,138,.35);
+  }
+  .brand span.name{font-size:18px;}
+  .brand span.sub{font-size:12px;color:var(--txt-2);font-weight:500;}
+  .nav-links{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;}
+  .nav-links a{
+    padding:8px 13px;border-radius:10px;font-size:14px;color:var(--txt-2);
+    transition:.2s;border:1px solid transparent;
+  }
+  .nav-links a:hover{color:#fff;background:var(--panel);border-color:var(--line);}
+
+  /* ---------- 首屏 ---------- */
+  .hero{padding:54px 0 34px;}
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+  }
+  .tagline{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;color:var(--accent-3);
+    background:rgba(51,214,200,.1);
+    border:1px solid rgba(51,214,200,.3);
+    padding:6px 12px;border-radius:999px;margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(28px,4.4vw,46px);
+    line-height:1.25;margin:0 0 16px;font-weight:800;letter-spacing:.4px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,var(--accent),var(--accent-2) 60%,var(--accent-3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:var(--txt-2);font-size:16px;margin:0 0 22px;max-width:56ch;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:12px;font-size:15px;font-weight:600;
+    border:1px solid transparent;cursor:pointer;transition:.2s;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;box-shadow:0 10px 24px rgba(124,92,255,.35);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(124,92,255,.45);}
+  .btn-ghost{background:var(--panel);border-color:var(--line);color:var(--txt);}
+  .btn-ghost:hover{background:var(--panel-2);}
+
+  .hero-panel{
+    background:linear-gradient(160deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);border-radius:20px;
+    padding:22px;box-shadow:var(--shadow);
+  }
+  .hero-panel h2{font-size:15px;margin:0 0 14px;color:var(--txt-2);font-weight:600;letter-spacing:.6px;}
+  .quick-list{list-style:none;margin:0;padding:0;display:grid;gap:10px;}
+  .quick-list li{
+    display:flex;gap:12px;align-items:flex-start;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);border-radius:12px;padding:11px 13px;
+    font-size:14px;color:var(--txt-2);
+  }
+  .quick-list li b{color:var(--txt);font-weight:600;display:block;font-size:14.5px;}
+  .qi{
+    flex:0 0 30px;height:30px;border-radius:9px;display:grid;place-items:center;
+    font-size:14px;background:rgba(124,92,255,.18);color:#c9bcff;
+  }
+
+  /* ---------- 通用区块 ---------- */
+  section{padding:38px 0;}
+  .sec-head{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:22px;}
+  .sec-head h2{font-size:clamp(20px,2.6vw,26px);margin:0;font-weight:800;letter-spacing:.4px;}
+  .sec-head p{margin:0;color:var(--txt-2);font-size:14px;}
+  .sec-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+  /* ---------- 分类 ---------- */
+  .cat-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;
+  }
+  .cat-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;transition:.22s;position:relative;overflow:hidden;
+  }
+  .cat-card:hover{transform:translateY(-3px);border-color:var(--accent-2);background:var(--panel-2);}
+  .cat-card .ico{font-size:22px;margin-bottom:8px;}
+  .cat-card h3{margin:0 0 6px;font-size:16.5px;}
+  .cat-card p{margin:0;font-size:13.5px;color:var(--txt-2);}
+  .cat-card .count{
+    position:absolute;top:14px;right:14px;font-size:11.5px;color:var(--txt-2);
+    border:1px solid var(--line);border-radius:999px;padding:1px 8px;
+  }
+
+  /* ---------- 游戏列表 ---------- */
+  .game-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:18px;
+  }
+  .game-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column;transition:.22s;
+  }
+  .game-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow);}
+  .thumb{
+    height:132px;display:grid;place-items:center;font-size:38px;
+    background:linear-gradient(135deg,rgba(124,92,255,.35),rgba(255,92,138,.28));
+    border-bottom:1px solid var(--line);
+  }
+  .thumb.t2{background:linear-gradient(135deg,rgba(51,214,200,.32),rgba(124,92,255,.3));}
+  .thumb.t3{background:linear-gradient(135deg,rgba(255,180,84,.3),rgba(255,92,138,.28));}
+  .thumb.t4{background:linear-gradient(135deg,rgba(255,92,138,.3),rgba(51,214,200,.26));}
+  .game-body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .game-body h3{margin:0;font-size:16px;}
+  .game-body p{margin:0;font-size:13.5px;color:var(--txt-2);flex:1;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;}
+  .chip{
+    font-size:11.5px;color:var(--txt-2);border:1px solid var(--line);
+    border-radius:999px;padding:2px 9px;background:rgba(255,255,255,.02);
+  }
+  .chip.hot{color:#ffd0de;border-color:rgba(255,92,138,.45);background:rgba(255,92,138,.12);}
+  .chip.new{color:#c9f7f1;border-color:rgba(51,214,200,.45);background:rgba(51,214,200,.12);}
+
+  /* ---------- 玩法说明（图文两栏） ---------- */
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start;}
+  .prose p{color:var(--txt-2);font-size:15px;margin:0 0 14px;}
+  .prose strong{color:var(--txt);}
+  .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;}
+  .steps li{
+    display:flex;gap:14px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:14px 16px;
+  }
+  .steps .n{
+    flex:0 0 28px;height:28px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;
+    font-size:13px;font-weight:700;
+  }
+  .steps b{display:block;font-size:15px;margin-bottom:2px;}
+  .steps span{font-size:13.5px;color:var(--txt-2);}
+
+  /* ---------- 榜单 ---------- */
+  .rank-wrap{
+    display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:start;
+  }
+  .rank-list{
+    list-style:none;margin:0;padding:0;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .rank-list li{
+    display:flex;align-items:center;gap:14px;padding:13px 16px;
+    border-bottom:1px solid var(--line);transition:.18s;
+  }
+  .rank-list li:last-child{border-bottom:none;}
+  .rank-list li:hover{background:var(--panel-2);}
+  .rank-list .no{
+    width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    font-size:13px;font-weight:700;background:var(--panel-2);color:var(--txt-2);flex:0 0 26px;
+  }
+  .rank-list li:nth-child(1) .no{background:linear-gradient(135deg,#ff5c8a,#7c5cff);color:#fff;}
+  .rank-list li:nth-child(2) .no{background:linear-gradient(135deg,#7c5cff,#33d6c8);color:#fff;}
+  .rank-list li:nth-child(3) .no{background:linear-gradient(135deg,#33d6c8,#7c5cff);color:#fff;}
+  .rank-list .rk-name{font-size:14.5px;font-weight:600;}
+  .rank-list .rk-desc{font-size:12.5px;color:var(--txt-2);}
+  .rank-list .rk-tag{margin-left:auto;font-size:12px;color:var(--txt-2);white-space:nowrap;}
+
+  .tips-box{
+    background:linear-gradient(160deg,var(--panel),var(--bg-soft));
+    border:1px solid var(--line);border-radius:var(--radius);padding:18px;
+  }
+  .tips-box h3{margin:0 0 12px;font-size:16px;}
+  .tips-box ul{margin:0;padding-left:18px;color:var(--txt-2);font-size:14px;}
+  .tips-box li{margin-bottom:9px;}
+  .tips-box li:last-child{margin-bottom:0;}
+
+  /* ---------- 安全提示 ---------- */
+  .notice{
+    border:1px solid rgba(255,180,84,.4);
+    background:linear-gradient(160deg,rgba(255,180,84,.12),rgba(255,180,84,.04));
+    border-radius:var(--radius);padding:20px 22px;
+  }
+  .notice h3{margin:0 0 10px;font-size:16.5px;color:#ffd8a1;}
+  .notice p{margin:0 0 10px;font-size:14.5px;color:var(--txt-2);}
+  .notice p:last-child{margin-bottom:0;}
+
+  /* ---------- FAQ ---------- */
+  .faq{display:grid;gap:12px;}
+  details{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:14px 18px;transition:.2s;
+  }
+  details[open]{border-color:var(--accent-2);background:var(--panel-2);}
+  summary{
+    cursor:pointer;font-size:15.5px;font-weight:600;list-style:none;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";font-size:19px;color:var(--accent-3);font-weight:700;
+    transition:.2s;line-height:1;
+  }
+  details[open] summary::after{content:"–";}
+  details p{margin:12px 0 0;font-size:14.5px;color:var(--txt-2);}
+
+  /* ---------- 页脚 ---------- */
+  footer{
+    margin-top:26px;border-top:1px solid var(--line);
+    background:rgba(15,18,32,.7);padding:34px 0 26px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:26px;}
+  .foot-grid h4{margin:0 0 10px;font-size:14.5px;color:var(--txt);}
+  .foot-grid p,.foot-grid li{font-size:13.5px;color:var(--txt-2);}
+  .foot-grid ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;}
+  .foot-grid a:hover{color:var(--accent-3);}
+  .copyright{
+    margin-top:24px;padding-top:16px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--txt-2);display:flex;justify-content:space-between;
+    gap:12px;flex-wrap:wrap;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;}
+    .split{grid-template-columns:1fr;}
+    .rank-wrap{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .hero{padding:34px 0 22px;}
+    section{padding:28px 0;}
+    .nav-links a{padding:7px 10px;font-size:13px;}
+    .brand span.sub{display:none;}
+    .foot-grid{grid-template-columns:1fr;}
+    .btn{padding:11px 18px;font-size:14px;}
+    .game-grid{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:420px){
+    .cat-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="dot">游</div>
+      <div>
+        <span class="name">轻玩小站</span><br>
+        <span class="sub">打开即玩的网页小游戏合集</span>
+      </div>
+    </div>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#categories">游戏分类</a>
+      <a href="#games">热门推荐</a>
+      <a href="#guide">玩法指南</a>
+      <a href="#ranking">人气榜</a>
+      <a href="#safety">安全提示</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="tagline">● 免安装 · 浏览器直接玩 · 碎片时间友好</span>
+        <h1>成人网页小游戏：<em>打开浏览器就能玩的轻量休闲合集</em></h1>
+        <p class="lead">
+          很多人搜索“成人网页小游戏”，真正想找的其实是——不用下载客户端、不用注册账号、点开就能玩几分钟的休闲小游戏。
+          本页把这类游戏按玩法类型整理清楚，并说明怎么挑、怎么玩、玩的时候要注意什么，帮你在碎片时间里快速找到合适的一款。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#games">浏览热门推荐</a>
+          <a class="btn btn-ghost" href="#guide">查看玩法指南</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="快速入门要点">
+        <h2>开始之前，先了解这几点</h2>
+        <ul class="quick-list">
+          <li>
+            <span class="qi">1</span>
+            <span><b>网页小游戏是什么</b>基于浏览器运行、无需安装客户端的小体量游戏，通常单局时长在几分钟以内。</span>
+          </li>
+          <li>
+            <span class="qi">2</span>
+            <span><b>适合什么场景</b>工作间隙、通勤等候、睡前放松等短时段，随时开始、随时结束。</span>
+          </li>
+          <li>
+            <span class="qi">3</span>
+            <span><b>怎么挑更省心</b>先选玩法类型，再看操作方式和单局时长，最后确认页面加载是否顺畅。</span>
+          </li>
+          <li>
+            <span class="qi">4</span>
+            <span><b>需要注意什么</b>留意页面来源与权限请求，避免授权、付费或填写个人信息的环节。</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类 -->
+  <section id="categories" class="wrap">
+    <div class="sec-head">
+      <h2>按玩法分类找游戏</h2>
+      <p>先确定你想动脑还是想放松，再进入对应类别</p>
+      <span class="line"></span>
+    </div>
+    <div class="cat-grid">
+      <article class="cat-card">
+        <div class="ico">🧩</div>
+        <span class="count">益智</span>
+        <h3>益智解谜</h3>
+        <p>拼图、连线、找不同、逻辑推演类玩法，节奏慢、思考多，适合想安静动脑的时候。</p>
+      </article>
+      <article class="cat-card">
+        <div class="ico">⚡</div>
+        <span class="count">反应</span>
+        <h3>反应操作</h3>
+        <p>躲避、点击、节奏类玩法，考验手速与判断，单局通常不到一分钟，适合快速提神。</p>
+      </article>
+      <article class="cat-card">
+        <div class="ico">🃏</div>
+        <span class="count">棋牌</span>
+        <h3>棋牌休闲</h3>
+        <p>纸牌、接龙、简易棋类等经典玩法，规则熟悉、上手成本低，适合放松式反复游玩。</p>
+      </article>
+      <article class="cat-card">
+        <div class="ico">🎯</div>
+        <span class="count">技巧</span>
+        <h3>技巧挑战</h3>
+        <p>瞄准、抛射、平衡类玩法，靠手感与练习提升成绩，适合喜欢刷分和挑战自我的玩家。</p>
+      </article>
+      <article class="cat-card">
+        <div class="ico">🧠</div>
+        <span class="count">记忆</span>
+        <h3>记忆训练</h3>
+        <p>翻牌配对、序列记忆等玩法，边玩边锻炼短期记忆，难度通常可以逐级提升。</p>
+      </article>
+      <article class="cat-card">
+        <div class="ico">🕹️</div>
+        <span class="count">怀旧</span>
+        <h3>经典复刻</h3>
+        <p>以简单像素风或复古规则呈现的轻量玩法，操作直观，适合偶尔回味旧式游戏的节奏。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 热门推荐 -->
+  <section id="games" class="wrap">
+    <div class="sec-head">
+      <h2>热门小游戏推荐</h2>
+      <p>以下为常见玩法类型的代表，点击卡片可查看玩法说明</p>
+      <span class="line"></span>
+    </div>
+    <div class="game-grid">
+
+      <article class="game-card">
+        <div class="thumb t1">🧩</div>
+        <div class="game-body">
+          <h3>方块拼合</h3>
+          <p>把散落的方块摆进网格，填满整行即可消除得分。规则简单，越到后面越考验空间规划能力。</p>
+          <div class="meta">
+            <span class="chip hot">人气高</span>
+            <span class="chip">益智</span>
+            <span class="chip">单局 3–5 分钟</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t2">⚡</div>
+        <div class="game-body">
+          <h3>极速闪避</h3>
+          <p>控制角色在移动的障碍之间穿行，坚持越久分数越高。适合用来在短时间内集中注意力。</p>
+          <div class="meta">
+            <span class="chip new">上手快</span>
+            <span class="chip">反应</span>
+            <span class="chip">单局 1 分钟内</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t3">🃏</div>
+        <div class="game-body">
+          <h3>纸牌接龙</h3>
+          <p>经典单人纸牌玩法，按花色与顺序整理牌堆。节奏由自己掌握，适合不紧不慢地消磨时间。</p>
+          <div class="meta">
+            <span class="chip">棋牌</span>
+            <span class="chip">可暂停</span>
+            <span class="chip">单局 5–10 分钟</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t4">🎯</div>
+        <div class="game-body">
+          <h3>弹射得分</h3>
+          <p>调整角度与力度把小球送进目标区域，每次尝试都会积累手感，适合喜欢刷高分的玩家。</p>
+          <div class="meta">
+            <span class="chip">技巧</span>
+            <span class="chip">可重开</span>
+            <span class="chip">单局 2–4 分钟</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t1">🧠</div>
+        <div class="game-body">
+          <h3>翻牌配对</h3>
+          <p>翻开卡片记住位置，把相同的图案两两配对。难度随关卡增加，适合边玩边放松大脑。</p>
+          <div class="meta">
+            <span class="chip">记忆</span>
+            <span class="chip">难度递进</span>
+            <span class="chip">单局 3 分钟左右</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t2">🔢</div>
+        <div class="game-body">
+          <h3>数字合成</h3>
+          <p>合并相同数字得到更大的数值，目标是尽量延长时间。逻辑清晰，适合喜欢慢节奏思考的人。</p>
+          <div class="meta">
+            <span class="chip hot">耐玩</span>
+            <span class="chip">益智</span>
+            <span class="chip">单局 5 分钟起</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t3">🎵</div>
+        <div class="game-body">
+          <h3>节奏点击</h3>
+          <p>跟随提示在正确时机点击，连续命中会获得更高评价。适合喜欢跟着节奏放松的玩家。</p>
+          <div class="meta">
+            <span class="chip new">轻松</span>
+            <span class="chip">反应</span>
+            <span class="chip">单局 2 分钟</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="game-card">
+        <div class="thumb t4">🧱</div>
+        <div class="game-body">
+          <h3>堆叠平衡</h3>
+          <p>把方块一层层往上叠，保持整体不倒塌。看似简单，实际很考验节奏控制和耐心。</p>
+          <div class="meta">
+            <span class="chip">技巧</span>
+            <span class="chip">可反复挑战</span>
+            <span class="chip">单局 1–3 分钟</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 玩法指南 -->
+  <section id="guide" class="wrap">
+    <div class="sec-head">
+      <h2>网页小游戏怎么玩：从选择到上手的完整思路</h2>
+      <span class="line"></span>
+    </div>
+    <div class="split">
+      <div class="prose">
+        <p>
+          网页小游戏最大的优势是<strong>门槛低</strong>：不用下载、不用安装、不用长时间等待更新，打开浏览器加载完成后就能开始。
+          但正因为数量多、来源杂，想玩得舒服，还是需要一点筛选思路。
+        </p>
+        <p>
+          第一步是<strong>明确自己想要的节奏</strong>。如果只是想短暂放松，优先选单局一两分钟、失败也能立刻重开的玩法；
+          如果有十几分钟空闲，可以考虑益智解谜或纸牌类，让思路慢慢展开，而不是被倒计时追着走。
+        </p>
+        <p>
+          第二步是<strong>看操作方式是否顺手</strong>。多数网页小游戏以鼠标点击、键盘方向键或触屏滑动为主。
+          在手机上玩时，注意按钮大小和间距是否合适；在电脑上玩时，确认是否需要全屏才能获得更好的视野。
+        </p>
+        <p>
+          第三步是<strong>关注页面体验</strong>。加载速度、画面是否卡顿、音效能否关闭，这些都会直接影响游玩感受。
+          如果页面频繁弹出无关窗口或要求额外权限，建议直接关闭，换一个更干净的来源。
+        </p>
+        <p>
+          最后一点是<strong>控制时长</strong>。小游戏容易“再来一局”，建议在开始前给自己设定一个大致时间，比如玩三局就休息一下，
+          这样既放松了，也不会打乱原本的安排。
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <span class="n">1</span>
+          <span><b>先定类型</b><span>想动脑选益智解谜，想提神选反应操作，想放松选棋牌休闲。</span></span>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <span><b>再看时长</b><span>按可用时间挑选单局长度，避免玩到一半被迫中断。</span></span>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <span><b>确认操作</b><span>鼠标、键盘还是触屏，选自己最顺手的一种。</span></span>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <span><b>试玩一局</b><span>先玩一局感受节奏与难度，合适再继续。</span></span>
+        </li>
+        <li>
+          <span class="n">5</span>
+          <span><b>设定时长</b><span>提前想好玩多久，到点就停，避免无意识延长。</span></span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 人气榜 -->
+  <section id="ranking" class="wrap">
+    <div class="sec-head">
+      <h2>玩法人气参考</h2>
+      <p>按常见搜索与游玩偏好整理的玩法顺序，仅供参考</p>
+      <span class="line"></span>
+    </div>
+    <div class="rank-wrap">
+      <ol class="rank-list">
+        <li>
+          <span class="no">1</span>
+          <span>
+            <span class="rk-name">益智解谜</span><br>
+            <span class="rk-desc">节奏自由、失败成本低，适合大多数场景</span>
+          </span>
+          <span class="rk-tag">适合安静时</span>
+        </li>
+        <li>
+          <span class="no">2</span>
+          <span>
+            <span class="rk-name">反应操作</span><br>
+            <span class="rk-desc">单局时间短，提神效果好</span>
+          </span>
+          <span class="rk-tag">适合碎片时间</span>
+        </li>
+        <li>
+          <span class="no">3</span>
+          <span>
+            <span class="rk-name">纸牌接龙</span><br>
+            <span class="rk-desc">规则熟悉，可随时暂停继续</span>
+          </span>
+          <span class="rk-tag">适合慢节奏</span>
+        </li>
+        <li>
+          <span class="no">4</span>
+          <span>
+            <span class="rk-name">记忆训练</span><br>
+            <span class="rk-desc">难度可调，边玩边锻炼注意力</span>
+          </span>
+          <span class="rk-tag">适合轻度动脑</span>
+        </li>
+        <li>
+          <span class="no">5</span>
+          <span>
+            <span class="rk-name">技巧挑战</span><br>
+            <span class="rk-desc">靠练习提升成绩，适合刷分爱好者</span>
+          </span>
+          <span class="rk-tag">适合反复挑战</span>
+        </li>
+        <li>
+          <span class="no">6</span>
+          <span>
+            <span class="rk-name">节奏点击</span><br>
+            <span class="rk-desc">操作直观，配合音效更有沉浸感</span>
+          </span>
+          <span class="rk-tag">适合放松</span>
+        </li>
+      </ol>
+
+      <aside class="tips-box">
+        <h3>挑选时的三个实用判断</h3>
+        <ul>
+          <li>页面是否能在几秒内加载完成，卡顿会明显影响体验。</li>
+          <li>是否提供暂停、重开、关闭音效等基础控制。</li>
+          <li>操作说明是否清楚，避免开局后靠猜规则。</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 安全提示 -->
+  <section id="safety" class="wrap">
+    <div class="sec-head">
+      <h2>游玩安全与使用提醒</h2>
+      <span class="line"></span>
+    </div>
+    <div class="notice">
+      <h3>请优先选择干净、来源清晰的页面</h3>
+      <p>
+        网页小游戏本身通常是轻量的，但部分页面可能夹带多余弹窗、诱导下载或权限请求。
+        遇到要求安装额外程序、填写手机号、输入支付信息，或反复弹出无法关闭的窗口时，建议立即关闭页面。
+      </p>
+      <p>
+        浏览器的权限提示（如通知、位置、摄像头、麦克风）与普通小游戏通常无关，除非你明确知道用途，否则不必授权。
+        保持浏览器为较新版本，也有助于减少兼容性问题和潜在风险。
+      </p>
+      <p>
+        另外，合理安排游玩时间同样重要。小游戏节奏快、反馈及时，容易让人不知不觉延长使用时间，
+        建议在开始前先想好大概玩多久，把娱乐安排在日常事务之外的空档里。
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="wrap">
+    <div class="sec-head">
+      <h2>常见问题</h2>
+      <span class="line"></span>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>成人网页小游戏需要下载或安装吗？</summary>
+        <p>多数网页小游戏直接在浏览器中运行，不需要下载安装客户端。少数页面可能提示安装插件或扩展，这类提示通常并非必需，遇到时可以谨慎判断，非必要不安装。</p>
+      </details>
+      <details>
+        <summary>在手机上能玩吗？</summary>
+        <p>许多轻量玩法已经适配触屏，通过点击或滑动即可操作。但部分以键盘为主的游戏在手机上体验会打折扣，建议优先选择标注支持触屏操作的玩法。</p>
+      </details>
+      <details>
+        <summary>玩的时候画面卡顿怎么办？</summary>
+        <p>可以先关闭其他占用资源较多的标签页或程序，再刷新页面重试。如果仍然卡顿，可能是页面本身优化不足，换一个同类玩法通常更省事。</p>
+      </details>
+      <details>
+        <summary>为什么有的游戏玩到一半无法继续？</summary>
+        <p>常见原因包括页面加载中断、浏览器兼容问题，或玩法本身存在关卡上限。可以尝试刷新页面；如果反复出现，说明该页面稳定性一般，建议更换。</p>
+      </details>
+      <details>
+        <summary>这些小游戏会记录个人信息吗？</summary>
+        <p>本页仅做玩法类型介绍与整理，不收集个人信息。具体页面是否有数据行为，取决于该页面自身的实现，建议避免在任何游戏中填写真实姓名、手机号、账号密码等敏感信息。</p>
+      </details>
+      <details>
+        <summary>怎样控制游玩时间？</summary>
+        <p>可以在开始前设定局数或时长，例如“玩三局就停”。也可以利用手机或电脑自带的屏幕使用时间提醒功能，帮助自己按计划结束。</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>轻玩小站</h4>
+        <p>一个围绕网页小游戏的玩法整理页，按类型说明玩法特点、上手方式与选择建议，帮助你在碎片时间里更快找到合适的休闲玩法。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#categories">游戏分类</a></li>
+          <li><a href="#games">热门推荐</a></li>
+          <li><a href="#guide">玩法指南</a></li>
+          <li><a href="#ranking">人气参考</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提醒</h4>
+        <ul>
+          <li>合理安排游玩时间</li>
+          <li>谨慎对待权限请求</li>
+          <li>不填写敏感个人信息</li>
+          <li>遇到异常页面及时关闭</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>轻玩小站 · 网页小游戏玩法整理与指南</span>
+      <span>内容仅供玩法参考，请以实际页面体验为准</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑定位到锚点，兼顾固定导航栏高度
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = this.getAttribute('href');
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var offset = 78;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  // 手风琴：同时只展开一个常见问题
+  var faqItems = document.querySelectorAll('.faq details');
+  faqItems.forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (!item.open) return;
+      faqItems.forEach(function (other) {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+</script>
+
+</body>
+  </html>
